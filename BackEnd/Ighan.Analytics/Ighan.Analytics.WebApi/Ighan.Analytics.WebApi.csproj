@@ -22,4 +22,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Ighan.Analytics.DataAccessLayer\Ighan.Analytics.DataAccessLayer.csproj" />
+    <ProjectReference Include="..\Ighan.Analytics.StorageModels\Ighan.Analytics.StorageModels.csproj" />
+  </ItemGroup>
+
 </Project>
