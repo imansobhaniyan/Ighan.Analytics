@@ -12,6 +12,6 @@ namespace Ighan.Analytics.StorageModels
 
         public User User { get; set; }
 
-        public List<AnalyticKey> Keys { get; set; }
+        public List<AnalyticKey> AnalyticKeys { get; set; }
     }
 }

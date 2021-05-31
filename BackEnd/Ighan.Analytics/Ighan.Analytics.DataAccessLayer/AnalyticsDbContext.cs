@@ -20,7 +20,7 @@ namespace Ighan.Analytics.DataAccessLayer
 
         public DbSet<Project> Projects { get; set; }
 
-        public DbSet<AnalyticKey> Keys { get; set; }
+        public DbSet<AnalyticKey> AnalyticKeys { get; set; }
 
         public DbSet<AnalyticValue> Values { get; set; }
     }
