@@ -17,4 +17,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Ighan.Analytics.StorageModels\Ighan.Analytics.StorageModels.csproj" />
+  </ItemGroup>
+
 </Project>
