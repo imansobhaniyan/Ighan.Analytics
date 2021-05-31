@@ -34,6 +34,7 @@ public final class IghanAnalytics {
             conn.setDoInput(true);
 
             JSONObject jsonParam = new JSONObject();
+            jsonParam.put("token", Configuration.getToken());
             jsonParam.put("key", key);
             jsonParam.put("value", value);
             jsonParam.put("Brand", Build.BRAND);
