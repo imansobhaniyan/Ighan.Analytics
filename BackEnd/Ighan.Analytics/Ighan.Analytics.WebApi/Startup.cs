@@ -53,7 +53,8 @@ namespace Ighan.Analytics.WebApi
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            using (var scope = app.ApplicationServices.CreateScope())
+                scope.ServiceProvider.GetService<AnalyticsDbContext>().Database.Migrate();
 
             app.UseEndpoints(endpoints =>
             {
