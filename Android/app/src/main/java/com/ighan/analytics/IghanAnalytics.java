@@ -15,7 +15,7 @@ import java.net.URL;
 
 public final class IghanAnalytics {
 
-    private static String BASE_URL = "http://analytics.sobhaniyan.ir/api/";
+    private static String BASE_URL = "http://localhost:41506/api/";
 
     public void add(String key, String value) {
         if (Configuration.getToken() == null) {
@@ -52,9 +52,9 @@ public final class IghanAnalytics {
             String response = conn.getResponseMessage();
 
             JSONObject responseObject = new JSONObject(response);
-            boolean success = responseObject.getBoolean("Success");
+            boolean success = responseObject.getBoolean("success");
             if (!success)
-                throw new Exception(responseObject.getString("Message"));
+                throw new Exception(responseObject.getString("message"));
 
             conn.disconnect();
         } catch (Throwable exception) {
