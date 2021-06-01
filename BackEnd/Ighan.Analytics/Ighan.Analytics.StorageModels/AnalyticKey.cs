@@ -7,6 +7,11 @@ namespace Ighan.Analytics.StorageModels
 {
     public class AnalyticKey
     {
+        public AnalyticKey()
+        {
+            Values = new List<AnalyticValue>();
+        }
+
         public int Id { get; set; }
 
         public string Key { get; set; }

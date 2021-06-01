@@ -4,6 +4,11 @@ namespace Ighan.Analytics.StorageModels
 {
     public class Project
     {
+        public Project()
+        {
+            AnalyticKeys = new List<AnalyticKey>();
+        }
+
         public int Id { get; set; }
 
         public string Title { get; set; }
