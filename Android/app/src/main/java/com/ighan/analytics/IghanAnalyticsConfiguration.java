@@ -5,7 +5,7 @@ import com.ighan.analytics.abstractions.ErrorListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class Configuration {
+public final class IghanAnalyticsConfiguration {
 
     private static String token;
 
@@ -16,7 +16,7 @@ public final class Configuration {
     }
 
     public static void setToken(String token) {
-        Configuration.token = token;
+        IghanAnalyticsConfiguration.token = token;
     }
 
     protected static List<ErrorListener> getErrorListeners() {
