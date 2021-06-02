@@ -24,24 +24,24 @@ namespace Ighan.Analytics.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ApiResult> Post(StatisticsModel model)
+        public async Task<ApiResult> Post([FromBody]StatisticsModel statisticsModel)
         {
             try
             {
                 var project = await dbContext.Projects
                     .Include(f => f.AnalyticKeys)
-                    .FirstOrDefaultAsync(f => f.Token == model.Token);
+                    .FirstOrDefaultAsync(f => f.Token == statisticsModel.Token);
 
                 if (project == null)
                     throw new Exception("Invalid token");
 
-                var key = project.AnalyticKeys.FirstOrDefault(f => f.Key == model.Key);
+                var key = project.AnalyticKeys.FirstOrDefault(f => f.Key == statisticsModel.Key);
 
                 if(key == null)
                 {
                     key = new StorageModels.AnalyticKey
                     {
-                        Key = model.Key
+                        Key = statisticsModel.Key
                     };
 
                     project.AnalyticKeys.Add(key);
@@ -49,13 +49,13 @@ namespace Ighan.Analytics.WebApi.Controllers
 
                 key.Values.Add(new StorageModels.AnalyticValue
                 {
-                    Brand = model.Brand,
+                    Brand = statisticsModel.Brand,
                     CreateDate = DateTime.Now,
-                    Manufacturer = model.Manufacturer,
-                    Model = model.Model,
-                    Release = model.Release,
-                    SDK = model.SDKInt,
-                    Value = model.Value
+                    Manufacturer = statisticsModel.Manufacturer,
+                    Model = statisticsModel.Model,
+                    Release = statisticsModel.Release,
+                    SDK = statisticsModel.SDKInt,
+                    Value = statisticsModel.Value
                 });
 
                 await dbContext.SaveChangesAsync();
