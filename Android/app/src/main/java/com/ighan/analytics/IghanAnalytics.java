@@ -7,7 +7,10 @@ import com.ighan.analytics.models.ErrorModel;
 
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
 import java.io.DataOutputStream;
+import java.io.InputStreamReader;
+import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -46,7 +49,7 @@ public final class IghanAnalytics {
                 os.flush();
                 os.close();
 
-                String response = conn.getResponseMessage();
+                String response = new BufferedReader(new InputStreamReader(conn.getInputStream())).readLine();
 
                 JSONObject responseObject = new JSONObject(response);
                 boolean success = responseObject.getBoolean("success");
