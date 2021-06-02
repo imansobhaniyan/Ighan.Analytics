@@ -13,7 +13,7 @@ import java.net.URL;
 
 public final class IghanAnalytics {
 
-    private static String BASE_URL = "http://localhost:41506/api/";
+    private static String BASE_URL = "http://192.168.1.51:41506/api/";
 
     public static void addValue(String key, String value) {
         new Thread(() -> {
